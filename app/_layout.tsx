@@ -12,7 +12,9 @@ export default function RootLayout() {
   const activeAlert = useStore(s => s.activeAlert);
 
   useEffect(() => {
-    startMeshService(simServerUrl);
+    startMeshService(simServerUrl).catch(e =>
+      console.error('[MeshService] startup error:', e)
+    );
   }, []);
 
   return (
