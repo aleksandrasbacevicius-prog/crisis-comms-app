@@ -1,8 +1,13 @@
-// DIAGNOSTIC: bare minimum — no expo-location, no JSON
-import React from 'react';
+// DIAGNOSTIC: expo-location added back
+import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import * as Location from 'expo-location';
 
 export function MapScreen() {
+  useEffect(() => {
+    Location.requestForegroundPermissionsAsync().catch(() => {});
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Shelters</Text>
