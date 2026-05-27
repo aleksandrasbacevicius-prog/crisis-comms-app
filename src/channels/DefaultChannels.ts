@@ -1,0 +1,68 @@
+import { Channel, MessagePriority } from '../protocol/types';
+
+export const DEFAULT_CHANNELS: Omit<Channel, 'unreadCount' | 'lastMessage'>[] = [
+  {
+    id: 'emergency.general',
+    name: 'Emergency Broadcast',
+    description: 'Official emergency alerts and warnings',
+    defaultPriority: MessagePriority.EMERGENCY,
+    icon: 'alert-octagon',
+    color: '#FF2D2D',
+  },
+  {
+    id: 'medical.help',
+    name: 'Medical Help',
+    description: 'Request or offer medical assistance',
+    defaultPriority: MessagePriority.MEDICAL,
+    icon: 'medical-bag',
+    color: '#FF6B35',
+  },
+  {
+    id: 'evacuation.routes',
+    name: 'Evacuation Routes',
+    description: 'Safe routes, road closures, checkpoints',
+    defaultPriority: MessagePriority.EVACUATION,
+    icon: 'run-fast',
+    color: '#FFD600',
+  },
+  {
+    id: 'shelter.access',
+    name: 'Shelter Access',
+    description: 'Shelter availability, capacity, conditions',
+    defaultPriority: MessagePriority.COORDINATION,
+    icon: 'home-city',
+    color: '#4FC3F7',
+  },
+  {
+    id: 'supplies.distribution',
+    name: 'Water & Food',
+    description: 'Supply distribution points and availability',
+    defaultPriority: MessagePriority.COORDINATION,
+    icon: 'water',
+    color: '#4FC3F7',
+  },
+  {
+    id: 'hazards.report',
+    name: 'Hazards',
+    description: 'Fires, gas leaks, structural damage, blocked roads',
+    defaultPriority: MessagePriority.COORDINATION,
+    icon: 'fire',
+    color: '#FFB74D',
+  },
+  {
+    id: 'family.reunification',
+    name: 'Family Reunification',
+    description: 'Find missing family members',
+    defaultPriority: MessagePriority.COORDINATION,
+    icon: 'account-group',
+    color: '#CE93D8',
+  },
+  {
+    id: 'local.neighborhood',
+    name: 'Local Chat',
+    description: 'General coordination with nearby people',
+    defaultPriority: MessagePriority.CHAT,
+    icon: 'forum',
+    color: '#AAAAAA',
+  },
+];

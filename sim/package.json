@@ -1,0 +1,12 @@
+{
+  "name": "crisis-comms-sim",
+  "version": "1.0.0",
+  "description": "CrisisComms mesh relay simulator",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.17.0"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "CrisisComms",
+    "slug": "crisis-comms",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Used to join nearby crisis channels automatically.",
+        "NSBluetoothAlwaysUsageDescription": "Used for peer-to-peer mesh communication when internet is unavailable."
+      }
+    },
+    "android": {
+      "permissions": [
+        "BLUETOOTH",
+        "BLUETOOTH_ADMIN",
+        "BLUETOOTH_SCAN",
+        "BLUETOOTH_CONNECT",
+        "BLUETOOTH_ADVERTISE",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "CHANGE_WIFI_STATE",
+        "ACCESS_WIFI_STATE",
+        "INTERNET"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Used to join nearby crisis channels automatically."
+        }
+      ]
+    ],
+    "scheme": "crisis-comms",
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
