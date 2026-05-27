@@ -22,7 +22,7 @@
     },
     {
       "id": "kas-002",
-      "name": "B\u012e \u201eGil\u0117s" namai",
+      "name": "B\u012e \u201eGil\u0117s\u201c namai",
       "address": "\u016alos g. 1",
       "district": "Naujoji Vilnia",
       "capacity": 391,
@@ -46,7 +46,7 @@
     },
     {
       "id": "kas-004",
-      "name": "Sostin\u0117s vaik\u0173 ir jaunimo centras \u201eHobiverse"",
+      "name": "Sostin\u0117s vaik\u0173 ir jaunimo centras \u201eHobiverse\u201c",
       "address": "Konstitucijos pr. 25",
       "district": "\u0160nipi\u0161kiai",
       "capacity": 7308,
@@ -106,7 +106,7 @@
     },
     {
       "id": "kas-009",
-      "name": "Vilniaus \u201eAteities" mokykla",
+      "name": "Vilniaus \u201eAteities\u201c mokykla",
       "address": "S. Stanevi\u010diaus g. 98",
       "district": "Fabijoni\u0161k\u0117s",
       "capacity": 8353,
@@ -166,7 +166,7 @@
     },
     {
       "id": "kas-014",
-      "name": "Vilniaus savivaldyb\u0117s Grigi\u0161ki\u0173 \u201e\u0160viesos" gimnazija",
+      "name": "Vilniaus savivaldyb\u0117s Grigi\u0161ki\u0173 \u201e\u0160viesos\u201c gimnazija",
       "address": "\u0160viesos g. 16",
       "district": "Grigi\u0161kiai",
       "capacity": 10688,
@@ -214,7 +214,7 @@
     },
     {
       "id": "kas-018",
-      "name": "Vilniaus \u201eTaikos" progimnazija",
+      "name": "Vilniaus \u201eTaikos\u201c progimnazija",
       "address": "Taikos g. 157",
       "district": "Justini\u0161k\u0117s",
       "capacity": 8396,
@@ -226,7 +226,7 @@
     },
     {
       "id": "kas-019",
-      "name": "Vilniaus \u201eSietuvos" progimnazija",
+      "name": "Vilniaus \u201eSietuvos\u201c progimnazija",
       "address": "Taikos g. 47",
       "district": "Justini\u0161k\u0117s",
       "capacity": 6032,
@@ -262,7 +262,7 @@
     },
     {
       "id": "kas-022",
-      "name": "Vilniaus \u201eRyto" progimnazija",
+      "name": "Vilniaus \u201eRyto\u201c progimnazija",
       "address": "D. Gerbutavi\u010diaus g. 9",
       "district": "Karolini\u0161k\u0117s",
       "capacity": 5440,
@@ -310,7 +310,7 @@
     },
     {
       "id": "kas-026",
-      "name": "Vilniaus \u201eMinties" gimnazija",
+      "name": "Vilniaus \u201eMinties\u201c gimnazija",
       "address": "Erfurto g. 23",
       "district": "Lazdynai",
       "capacity": 6689,
@@ -322,7 +322,7 @@
     },
     {
       "id": "kas-027",
-      "name": "Vilniaus \u201e\u0104\u017euolyno" progimnazija",
+      "name": "Vilniaus \u201e\u0104\u017euolyno\u201c progimnazija",
       "address": "Architekt\u0173 g. 68",
       "district": "Lazdynai",
       "capacity": 4699,
@@ -370,7 +370,7 @@
     },
     {
       "id": "kas-031",
-      "name": "Vilniaus \u201eSaul\u0117tekio" mokykla-daugiafunkcinis centras",
+      "name": "Vilniaus \u201eSaul\u0117tekio\u201c mokykla-daugiafunkcinis centras",
       "address": "Kaminkelio g. 10",
       "district": "Naujininkai",
       "capacity": 5703,
@@ -394,7 +394,7 @@
     },
     {
       "id": "kas-033",
-      "name": "Vilniaus \u201eJuventos" gimnazija",
+      "name": "Vilniaus \u201eJuventos\u201c gimnazija",
       "address": "Tel\u0161i\u0173 g. 2",
       "district": "Naujininkai",
       "capacity": 4379,
@@ -430,7 +430,7 @@
     },
     {
       "id": "kas-036",
-      "name": "Vilniaus \u201e\u017daros" gimnazija",
+      "name": "Vilniaus \u201e\u017daros\u201c gimnazija",
       "address": "Karkl\u0117n\u0173 g. 13",
       "district": "Naujoji Vilnia",
       "capacity": 3431,
@@ -454,7 +454,7 @@
     },
     {
       "id": "kas-038",
-      "name": "Vilniaus \u201eGabijos" progimnazija",
+      "name": "Vilniaus \u201eGabijos\u201c progimnazija",
       "address": "Gabijos g. 2A",
       "district": "Pa\u0161ilai\u010diai",
       "capacity": 8966,
@@ -646,7 +646,7 @@
     },
     {
       "id": "kas-054",
-      "name": "Vilniaus \u201eSantaros" gimnazija",
+      "name": "Vilniaus \u201eSantaros\u201c gimnazija",
       "address": "A. Juozapavi\u010diaus g. 12",
       "district": "\u0160nipi\u0161kiai",
       "capacity": 7109,
@@ -718,7 +718,7 @@
     },
     {
       "id": "kas-060",
-      "name": "B\u012e \u201eGil\u0117s" namai",
+      "name": "B\u012e \u201eGil\u0117s\u201c namai",
       "address": "J. Kairi\u016bk\u0161\u010dio 3F",
       "district": "Verkiai",
       "capacity": 400,
@@ -742,7 +742,7 @@
     },
     {
       "id": "kas-062",
-      "name": "B\u012e \u201eGil\u0117s" namai",
+      "name": "B\u012e \u201eGil\u0117s\u201c namai",
       "address": "Vilkp\u0117d\u0117s g. 3A",
       "district": "Vilkp\u0117d\u0117",
       "capacity": 222,
@@ -886,7 +886,7 @@
     },
     {
       "id": "kas-074",
-      "name": "Vilniaus \u201eGijos" jaunimo mokykla centras",
+      "name": "Vilniaus \u201eGijos\u201c jaunimo mokykla centras",
       "address": "Kauno g. 43",
       "district": "Naujamiestis",
       "capacity": 3013,
