@@ -1,85 +1,44 @@
-import * as SQLite from 'expo-sqlite';
-import { CrisisMessage } from '../protocol/types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { CrisisMessage, Peer } from '../protocol/types';
 
-let db: SQLite.SQLiteDatabase | null = null;
+const MAX_MESSAGES_PER_CHANNEL = 200;
 
-async function getDb(): Promise<SQLite.SQLiteDatabase> {
-  if (!db) {
-    db = await SQLite.openDatabaseAsync('crisis_comms.db');
-    await db.execAsync(`
-      PRAGMA journal_mode = WAL;
-      CREATE TABLE IF NOT EXISTS messages (
-        id TEXT PRIMARY KEY,
-        channel TEXT NOT NULL,
-        priority INTEGER NOT NULL,
-        type TEXT NOT NULL,
-        sender_pubkey TEXT NOT NULL,
-        sender_alias TEXT NOT NULL,
-        payload TEXT NOT NULL,
-        timestamp INTEGER NOT NULL,
-        ttl INTEGER NOT NULL,
-        signature TEXT NOT NULL,
-        relay_path TEXT NOT NULL,
-        location TEXT
-      );
-      CREATE INDEX IF NOT EXISTS idx_messages_channel ON messages(channel, timestamp DESC);
-      CREATE TABLE IF NOT EXISTS peers (
-        pubkey TEXT PRIMARY KEY,
-        alias TEXT NOT NULL,
-        last_seen INTEGER NOT NULL,
-        hop_distance INTEGER NOT NULL,
-        is_verified INTEGER NOT NULL DEFAULT 0
-      );
-    `);
-  }
-  return db;
+function msgKey(channel: string) {
+  return `messages:${channel}`;
 }
 
 export async function saveMessage(msg: CrisisMessage): Promise<void> {
-  const db = await getDb();
-  await db.runAsync(
-    `INSERT OR REPLACE INTO messages
-       (id, channel, priority, type, sender_pubkey, sender_alias, payload, timestamp, ttl, signature, relay_path, location)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    msg.id, msg.channel, msg.priority, msg.type,
-    msg.senderPubkey, msg.senderAlias, msg.payload,
-    msg.timestamp, msg.ttl, msg.signature,
-    JSON.stringify(msg.relayPath),
-    msg.location ? JSON.stringify(msg.location) : null,
-  );
+  try {
+    const raw = await AsyncStorage.getItem(msgKey(msg.channel));
+    const existing: CrisisMessage[] = raw ? JSON.parse(raw) : [];
+    if (existing.some(m => m.id === msg.id)) return;
+    const updated = [...existing, msg]
+      .sort((a, b) => a.timestamp - b.timestamp)
+      .slice(-MAX_MESSAGES_PER_CHANNEL);
+    await AsyncStorage.setItem(msgKey(msg.channel), JSON.stringify(updated));
+  } catch {
+    // persistence failure is non-fatal
+  }
 }
 
 export async function getMessagesForChannel(channel: string, limit = 100): Promise<CrisisMessage[]> {
-  const db = await getDb();
-  const rows = await db.getAllAsync<Record<string, any>>(
-    `SELECT * FROM messages WHERE channel = ? ORDER BY timestamp DESC LIMIT ?`,
-    channel, limit,
-  );
-  return rows.map(rowToMessage).reverse();
+  try {
+    const raw = await AsyncStorage.getItem(msgKey(channel));
+    if (!raw) return [];
+    const msgs: CrisisMessage[] = JSON.parse(raw);
+    return msgs.slice(-limit);
+  } catch {
+    return [];
+  }
 }
 
-export async function savePeer(peer: import('../protocol/types').Peer): Promise<void> {
-  const db = await getDb();
-  await db.runAsync(
-    `INSERT OR REPLACE INTO peers (pubkey, alias, last_seen, hop_distance, is_verified)
-     VALUES (?, ?, ?, ?, ?)`,
-    peer.pubkey, peer.alias, peer.lastSeen, peer.hopDistance, peer.isVerifiedResponder ? 1 : 0,
-  );
-}
-
-function rowToMessage(row: Record<string, any>): CrisisMessage {
-  return {
-    id: row.id,
-    channel: row.channel,
-    priority: row.priority,
-    type: row.type,
-    senderPubkey: row.sender_pubkey,
-    senderAlias: row.sender_alias,
-    payload: row.payload,
-    timestamp: row.timestamp,
-    ttl: row.ttl,
-    signature: row.signature,
-    relayPath: JSON.parse(row.relay_path),
-    location: row.location ? JSON.parse(row.location) : undefined,
-  };
+export async function savePeer(peer: Peer): Promise<void> {
+  try {
+    const raw = await AsyncStorage.getItem('peers');
+    const peers: Peer[] = raw ? JSON.parse(raw) : [];
+    const updated = [...peers.filter(p => p.pubkey !== peer.pubkey), peer];
+    await AsyncStorage.setItem('peers', JSON.stringify(updated));
+  } catch {
+    // non-fatal
+  }
 }
