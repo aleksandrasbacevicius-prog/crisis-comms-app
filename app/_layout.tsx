@@ -1,4 +1,4 @@
-import 'react-native-get-random-values';
+import '../src/crypto-polyfill';
 import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { Stack } from 'expo-router';
