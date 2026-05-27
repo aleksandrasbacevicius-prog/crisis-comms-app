@@ -1,7 +1,8 @@
-// DIAGNOSTIC: expo-location added back
+// DIAGNOSTIC: shelters.json added back
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as Location from 'expo-location';
+import shelterData from '../../assets/shelters.json';
 
 export function MapScreen() {
   useEffect(() => {
@@ -10,7 +11,7 @@ export function MapScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Shelters</Text>
+      <Text style={styles.text}>Shelters: {shelterData.shelters.length}</Text>
     </View>
   );
 }
