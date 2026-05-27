@@ -31,15 +31,6 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="shelters"
-        options={{
-          title: 'Shelters',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="map-marker-multiple" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="settings"
         options={{
           title: 'Settings',
